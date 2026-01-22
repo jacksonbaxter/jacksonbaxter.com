@@ -2,7 +2,14 @@
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tacos.jacksonbaxter.com",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
   },
 };
 
