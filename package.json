@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "bun --bun next dev -H 0.0.0.0 --turbo",
-    "build": "bun --bun next build && bun run extract && bun run push",
+    "build": "bun --bun next build",
+    "build:full": "bun --bun next build && bun run extract && bun run push",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
