@@ -1,0 +1,19 @@
+{
+  "socials": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/in/jackson-baxter/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/jacksonbaxter",
+      "icon": "github"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:jacksonbaxter@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}

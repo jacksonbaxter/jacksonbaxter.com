@@ -1,0 +1,22 @@
+{
+  "education": [
+    {
+      "name": "Brigham Young University",
+      "href": "https://www.byu.edu",
+      "logo": "/img/byu.png",
+      "positions": [
+        {
+          "title": "BS in Computer Science",
+          "start": "Sep 2021",
+          "end": "Apr 2025",
+          "description": [
+            "Emphasis in Data Science and Machine Learning",
+            "BYU Top Student Scholarship: Merit-based award given to one of 500+ student employees for exceptional academic achievement",
+            "University of Texas Dallas Cyber Security Award (Summer 2018)",
+            "Business Professionals of America State Placement: C++ Programming and Network Design Team (2017 & 2018)"
+          ]
+        }
+      ]
+    }
+  ]
+}

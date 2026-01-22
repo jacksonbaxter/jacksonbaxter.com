@@ -1,0 +1,60 @@
+{
+  "career": [
+    {
+      "name": "Curatus",
+      "href": "https://curatus.com",
+      "logo": "/img/curatus.png",
+      "positions": [
+        {
+          "title": "Software Engineer, Analytics and AI",
+          "start": "Nov 2025",
+          "description": [
+            "Architected a LangGraph multi-agent system to automate mapping for millions of weekly health and provider records, achieving 96% data quality and virtually eliminating manual intervention.",
+            "Developed a high-performance data scoring engine in C++ capable of evaluating billions of records daily, optimizing computational throughput for large-scale healthcare datasets.",
+            "Re-engineered data pipelines to optimize storage architecture, reducing total database volume by 90% while maintaining 100% data fidelity and operational utility."
+          ]
+        },
+        {
+          "title": "Software Engineer, Analytics and AI (Internship)",
+          "start": "Jul 2025",
+          "end": "Oct 2025",
+          "description": [
+            "Engineered a data scoring pipeline using Python, Pandas, and NumPy to compare and rank data, increasing customer data quality by 22.5%."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lawrence Livermore National Laboratory",
+      "href": "https://www.llnl.gov",
+      "logo": "/img/llnl.png",
+      "positions": [
+        {
+          "title": "Software Engineer, AI Engineer (Internship)",
+          "start": "Sep 2024",
+          "end": "Apr 2025",
+          "description": [
+            "Led a team of 3 engineers to develop a custom RAG system, reducing document search time from 2 hours to under 5 seconds, saving $2.86M annually.",
+            "Engineered a serverless data ingestion pipeline using Docling, OpenAI GPT-4o-mini, and Qwen embeddings, increasing throughput by 40%.",
+            "Improved retrieval accuracy by 35% through a novel contextual embedding strategy."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brigham Young University IT",
+      "href": "https://www.byu.edu",
+      "logo": "/img/byu.png",
+      "positions": [
+        {
+          "title": "Student IT Lead",
+          "start": "Sep 2021",
+          "end": "May 2025",
+          "description": [
+            "Led IT infrastructure upgrades for academic departments, including database server migration and optimization, resulting in 15% improvement in query performance."
+          ]
+        }
+      ]
+    }
+  ]
+}
