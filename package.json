@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0 --turbo",
-    "build": "next build && bun run extract && bun run push",
+    "dev": "bun --bun next dev -H 0.0.0.0 --turbo",
+    "build": "bun --bun next build && bun run extract && bun run push",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
