@@ -1,7 +1,7 @@
 {
   "introduction": {
     "greeting": "hi, i'm jackson. 👋",
-    "description": "Software engineer building scalable applications.",
+    "description": "Software Engineer into Data and ML",
     "chatPrompt": "For Q&A, start a chat with Jackson Support",
     "escalation": {
       "text": "For any inquiries, feel free to",
