@@ -18,8 +18,18 @@ import { Suspense } from "react";
 
 import homeContent from "@/data/home.json";
 
-const BIRTH_YEAR = 1999;
+const BIRTHDATE = new Date(1999, 9, 20); // Oct 20, 1999 (month is 0-indexed)
 const LIMIT = 2; // max show 2
+
+function calculateAge(birthdate: Date): number {
+  const today = new Date();
+  let age = today.getFullYear() - birthdate.getFullYear();
+  const monthDiff = today.getMonth() - birthdate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+    age--;
+  }
+  return age;
+}
 
 async function RecentPosts() {
   const posts = (await getPosts())
@@ -29,7 +39,7 @@ async function RecentPosts() {
 }
 
 export default function Home() {
-  const currentAge = new Date().getFullYear() - BIRTH_YEAR;
+  const currentAge = calculateAge(BIRTHDATE);
 
   return (
     <article className="mt-8 flex flex-col gap-16 pb-16">
