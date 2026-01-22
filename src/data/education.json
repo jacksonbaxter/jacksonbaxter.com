@@ -11,7 +11,33 @@
           "end": "Apr 2025",
           "description": [
             "Emphasis in Data Science and Machine Learning",
-            "BYU Top Student Scholarship: Merit-based award given to one of 500+ student employees for exceptional academic achievement",
+            "BYU Top Student Scholarship: Merit-based award for exceptional academic achievement"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Church of Jesus Christ of Latter-Day Saints",
+      "href": "https://www.churchofjesuschrist.org",
+      "logo": "/img/lds.png",
+      "positions": [
+        {
+          "title": "Volunteer Missionary",
+          "start": "Aug 2018",
+          "end": "May 2020"
+        }
+      ]
+    },
+    {
+      "name": "Lone Star High School",
+      "href": "https://www.friscoisd.org/schools/high-schools/lone-star",
+      "logo": "/img/lshs.png",
+      "positions": [
+        {
+          "title": "High School Diploma",
+          "start": "Aug 2014",
+          "end": "May 2018",
+          "description": [
             "University of Texas Dallas Cyber Security Award (Summer 2018)",
             "Business Professionals of America State Placement: C++ Programming and Network Design Team (2017 & 2018)"
           ]

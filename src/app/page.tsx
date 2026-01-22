@@ -18,7 +18,7 @@ import { Suspense } from "react";
 
 import homeContent from "@/data/home.json";
 
-const TED_BIRTH_YEAR = 1997;
+const BIRTH_YEAR = 1999;
 const LIMIT = 2; // max show 2
 
 async function RecentPosts() {
@@ -29,7 +29,7 @@ async function RecentPosts() {
 }
 
 export default function Home() {
-  const currentAge = new Date().getFullYear() - TED_BIRTH_YEAR;
+  const currentAge = new Date().getFullYear() - BIRTH_YEAR;
 
   return (
     <article className="mt-8 flex flex-col gap-16 pb-16">
@@ -42,7 +42,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-2 whitespace-nowrap text-sm font-medium sm:text-base">
-            {currentAge}yo software engineer from Singapore 🇸🇬
+            {currentAge}yo software engineer from Utah 🇺🇸
           </p>
 
           <p className="mt-4 max-w-sm text-balance text-sm sm:text-base">

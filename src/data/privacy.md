@@ -38,4 +38,4 @@ I don’t sell, trade, or rent personal data. If you accidentally share somethin
 
 ## Questions?
 
-If you have questions, concerns, or just want to say hi, email me at [hello@tedawf.com](mailto:hello@tedawf.com) or use the [contact form](/contact). Happy to chat.
+If you have questions, concerns, or just want to say hi, email me at [jacksonbaxter@gmail.com](mailto:jacksonbaxter@gmail.com) or use the [contact form](/contact). Happy to chat.
