@@ -117,7 +117,7 @@ const Card = ({
       {isFront ? (
         <ImageWithSkeleton
           src={url}
-          alt="Photo of Ted"
+          alt="Photo of Jackson"
           width={175}
           height={233}
           sizes="175px"
@@ -157,18 +157,26 @@ type Card = {
 const cardData: Card[] = [
   {
     id: 1,
-    url: "/img/ted-2018.jpg",
+    url: "/jackson-professional.jpg",
   },
   {
     id: 2,
-    url: "/img/ted-2021.jpg",
+    url: "/jackson-oval-office.jpg",
   },
   {
     id: 3,
-    url: "/img/ted-2024.jpg",
+    url: "/jackson-lake.jpg",
   },
   {
     id: 4,
-    url: "/img/ted-2025.jpg",
+    url: "/jackson-prague.jpg",
+  },
+  {
+    id: 5,
+    url: "/jackson-hiking.jpg",
+  },
+  {
+    id: 6,
+    url: "/jackson-gym.jpg",
   },
 ];
