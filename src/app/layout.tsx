@@ -21,10 +21,7 @@ export const metadata: Metadata = {
   title: "Jackson Baxter",
   description: "My personal site to showcase my developer work and opinions.",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
