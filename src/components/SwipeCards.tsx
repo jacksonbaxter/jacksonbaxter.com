@@ -157,26 +157,26 @@ type Card = {
 const cardData: Card[] = [
   {
     id: 1,
-    url: "/jackson-professional.jpg",
+    url: "/jackson-gym.jpg",
   },
   {
     id: 2,
-    url: "/jackson-oval-office.jpg",
-  },
-  {
-    id: 3,
-    url: "/jackson-lake.jpg",
-  },
-  {
-    id: 4,
-    url: "/jackson-prague.jpg",
-  },
-  {
-    id: 5,
     url: "/jackson-hiking.jpg",
   },
   {
+    id: 3,
+    url: "/jackson-prague.jpg",
+  },
+  {
+    id: 4,
+    url: "/jackson-lake.jpg",
+  },
+  {
+    id: 5,
+    url: "/jackson-oval-office.jpg",
+  },
+  {
     id: 6,
-    url: "/jackson-gym.jpg",
+    url: "/jackson-professional.jpg",
   },
 ];
