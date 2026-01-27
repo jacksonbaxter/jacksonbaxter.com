@@ -14,7 +14,7 @@ export default function Footer() {
             </Link>{" "}
             |{" "}
             <Link className="link font-bold" href="/privacy">
-              privacy?
+              Privacy?
             </Link>
           </p>
         </section>

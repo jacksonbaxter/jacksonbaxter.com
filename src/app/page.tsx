@@ -25,7 +25,10 @@ function calculateAge(birthdate: Date): number {
   const today = new Date();
   let age = today.getFullYear() - birthdate.getFullYear();
   const monthDiff = today.getMonth() - birthdate.getMonth();
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthdate.getDate())
+  ) {
     age--;
   }
   return age;
@@ -97,12 +100,12 @@ export default function Home() {
 
       <section className="flex flex-col gap-8">
         <div className="flex justify-between">
-          <h2 className="title text-2xl sm:text-3xl">featured projects</h2>
+          <h2 className="title text-2xl sm:text-3xl">Featured Projects</h2>
           <LinkWithIcon
             href="/projects"
             position="right"
             icon={<ArrowRightIcon className="size-5" />}
-            text="view more"
+            text="View More"
           />
         </div>
         <Projects limit={LIMIT} />
@@ -110,12 +113,12 @@ export default function Home() {
 
       <section className="flex flex-col gap-8">
         <div className="flex justify-between">
-          <h2 className="title text-3xl">recent posts</h2>
+          <h2 className="title text-3xl">Recent Posts</h2>
           <LinkWithIcon
             href="/blog"
             position="right"
             icon={<ArrowRightIcon className="size-5" />}
-            text="view more"
+            text="View More"
           />
         </div>
         <Suspense fallback={<PostsSkeleton rows={LIMIT} />}>

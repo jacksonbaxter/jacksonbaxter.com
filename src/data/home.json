@@ -1,6 +1,6 @@
 {
   "introduction": {
-    "greeting": "hi, i'm jackson. 👋",
+    "greeting": "Hi, I'm Jackson. 👋",
     "description": "Software Engineer into Data and ML",
     "chatPrompt": "For Q&A, start a chat with Jackson Support",
     "escalation": {
@@ -11,6 +11,6 @@
   },
   "escalationLink": {
     "href": "mailto:jacksonbaxter@gmail.com",
-    "title": "contact me"
+    "title": "Contact Me"
   }
 }

@@ -13,7 +13,7 @@ async function BlogPosts() {
 export default function BlogPage() {
   return (
     <article className="mt-8 flex flex-col gap-8 pb-16">
-      <h1 className="title">my blog.</h1>
+      <h1 className="title">My Blog.</h1>
 
       <Suspense fallback={<PostsSkeleton rows={6} showControls />}>
         <BlogPosts />

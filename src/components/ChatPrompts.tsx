@@ -6,40 +6,40 @@ interface ChatPromptsProps {
 }
 
 const allPrompts = [
-  "Tell me about Ted's experience",
-  "What projects has Ted worked on?",
-  "What technologies does Ted use?",
-  "What is Ted's current role?",
-  "Tell me about Ted's skills",
-  "What companies has Ted worked at?",
+  "Tell me about Jackson's experience",
+  "What projects has Jackson worked on?",
+  "What technologies does Jackson use?",
+  "What is Jackson's current role?",
+  "Tell me about Jackson's skills",
+  "What companies has Jackson worked at?",
 
   // Portfolio & career
-  "What is Ted currently working on?",
-  "What kind of developer is Ted?",
-  "What problems does Ted like solving?",
-  "What areas is Ted strongest in?",
-  "What is Ted focusing on learning now?",
+  "What is Jackson currently working on?",
+  "What kind of developer is Jackson?",
+  "What problems does Jackson like solving?",
+  "What areas is Jackson strongest in?",
+  "What is Jackson focusing on learning now?",
 
   // Projects & blog
-  "Which project best represents Ted's work?",
-  "What was the motivation behind Ted's projects?",
-  "What technical challenges has Ted written about?",
-  "What tools or frameworks does Ted frequently mention?",
-  "What has Ted built outside of work?",
+  "Which project best represents Jackson's work?",
+  "What was the motivation behind Jackson's projects?",
+  "What technical challenges has Jackson written about?",
+  "What tools or frameworks does Jackson frequently mention?",
+  "What has Jackson built outside of work?",
 
   // Engineering approach
-  "How does Ted approach system design?",
-  "What does Ted care about in clean architecture?",
-  "How does Ted balance speed vs correctness?",
-  "What engineering principles does Ted follow?",
-  "What tradeoffs does Ted often discuss?",
+  "How does Jackson approach system design?",
+  "What does Jackson care about in clean architecture?",
+  "How does Jackson balance speed vs correctness?",
+  "What engineering principles does Jackson follow?",
+  "What tradeoffs does Jackson often discuss?",
 
   // Practical / conversational
   "What can you help me with?",
-  "Where should I start if I want to explore Ted's work?",
-  "What should I read to understand Ted's thinking?",
-  "Is Ted more backend or frontend focused?",
-  "How can I contact Ted?"
+  "Where should I start if I want to explore Jackson's work?",
+  "What should I read to understand Jackson's thinking?",
+  "Is Jackson more backend or frontend focused?",
+  "How can I contact Jackson?",
 ];
 
 function getRandomPrompts(prompts: string[], count: number): string[] {

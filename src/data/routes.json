@@ -2,37 +2,37 @@
   "routes": [
     {
       "path": "/",
-      "name": "home",
+      "name": "Home",
       "description": "Portfolio overview, recent projects, and blog highlights",
       "showInNav": true
     },
     {
       "path": "/projects",
-      "name": "projects",
+      "name": "Projects",
       "description": "Portfolio projects showcase",
       "showInNav": true
     },
     {
       "path": "/blog",
-      "name": "blog",
+      "name": "Blog",
       "description": "Blog posts and project updates",
       "showInNav": true
     },
     {
       "path": "/contact",
-      "name": "contact",
+      "name": "Contact",
       "description": "Contact form",
       "showInNav": true
     },
     {
       "path": "/privacy",
-      "name": "privacy",
+      "name": "Privacy",
       "description": "Privacy policy",
       "showInNav": false
     },
     {
       "path": "/resume.pdf",
-      "name": "resume",
+      "name": "Resume",
       "description": "Ted's resume CV in pdf format",
       "showInNav": false
     }
@@ -40,7 +40,7 @@
   "externalLinks": [
     {
       "path": "https://www.instagram.com/gomugomu.cat",
-      "name": "instagram",
+      "name": "Instagram",
       "description": "Ted Lead for escalations (joke reference to cat's account)",
       "isExternal": true
     }
