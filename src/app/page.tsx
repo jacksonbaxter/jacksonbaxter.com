@@ -1,20 +1,11 @@
 import Experience from "@/components/Experience";
 import LinkWithIcon from "@/components/LinkWithIcon";
-import Posts from "@/components/Posts";
-import PostsSkeleton from "@/components/PostsSkeleton";
 import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
 import SwipeCards from "@/components/SwipeCards";
 import { Button } from "@/components/ui/Button";
-import { getPosts } from "@/lib/posts";
-import {
-  ArrowDown,
-  ArrowDownRight,
-  ArrowRightIcon,
-  FileDown,
-} from "lucide-react";
+import { ArrowRightIcon, FileDown } from "lucide-react";
 import Link from "next/link";
-import { Suspense } from "react";
 
 import homeContent from "@/data/home.json";
 
@@ -34,12 +25,6 @@ function calculateAge(birthdate: Date): number {
   return age;
 }
 
-async function RecentPosts() {
-  const posts = (await getPosts())
-    .filter((post) => !post.draft)
-    .slice(0, LIMIT);
-  return <Posts posts={posts} />;
-}
 
 export default function Home() {
   const currentAge = calculateAge(BIRTHDATE);
@@ -62,15 +47,7 @@ export default function Home() {
             {homeContent.introduction.description}
           </p>
 
-          <div className="mt-6 flex items-center gap-1">
-            <p className="text-balance text-sm font-semibold sm:text-base">
-              {homeContent.introduction.chatPrompt}
-            </p>
-            <ArrowDownRight className="hidden size-5 animate-bounce sm:block" />
-            <ArrowDown className="block size-5 animate-bounce sm:hidden" />
-          </div>
-
-          <p className="mt-1 text-xs font-light">
+          <p className="mt-6 text-xs font-light">
             {homeContent.introduction.escalation.text}&nbsp;
             <Link
               href={homeContent.escalationLink.href}
@@ -109,21 +86,6 @@ export default function Home() {
           />
         </div>
         <Projects limit={LIMIT} />
-      </section>
-
-      <section className="flex flex-col gap-8">
-        <div className="flex justify-between">
-          <h2 className="title text-3xl">Recent Posts</h2>
-          <LinkWithIcon
-            href="/blog"
-            position="right"
-            icon={<ArrowRightIcon className="size-5" />}
-            text="View More"
-          />
-        </div>
-        <Suspense fallback={<PostsSkeleton rows={LIMIT} />}>
-          <RecentPosts />
-        </Suspense>
       </section>
     </article>
   );
