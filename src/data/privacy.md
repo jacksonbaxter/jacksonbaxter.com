@@ -2,23 +2,17 @@ _Last Updated: Dec 2025_
 
 ## TL;DR
 
-This site doesn’t track you. If you use the chatbot, messages are stored in my database so I can see what people are asking and improve the site.
+This site doesn't track you.
 
 ## Hey 👋
 
-Thanks for stopping by. This is my personal portfolio and blog where I share my work, projects, and thoughts. I care about privacy, so here’s a simple, no-nonsense explanation of how things work.
+Thanks for stopping by. This is my personal portfolio where I share my work, projects, and thoughts. I care about privacy, so here's a simple, no-nonsense explanation of how things work.
 
 ## What I collect (and why)
 
 This site is mostly static. There are no accounts, no ads, and no tracking cookies watching what you do.
 
 There are only a couple of cases where information might be stored:
-
-### Chatbot messages
-
-If you use the chatbot, the messages are stored in my own database. I use them purely to understand what people are asking about, spot gaps in the site, and improve the chatbot and content over time.
-
-I’m the only one looking at this data. It’s not shared or sold. Please don’t put anything sensitive or offensive into the chat.
 
 ### Contacting me
 
