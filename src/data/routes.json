@@ -3,19 +3,13 @@
     {
       "path": "/",
       "name": "Home",
-      "description": "Portfolio overview, recent projects, and blog highlights",
+      "description": "Portfolio overview and recent projects",
       "showInNav": true
     },
     {
       "path": "/projects",
       "name": "Projects",
       "description": "Portfolio projects showcase",
-      "showInNav": true
-    },
-    {
-      "path": "/blog",
-      "name": "Blog",
-      "description": "Blog posts and project updates",
       "showInNav": true
     },
     {
