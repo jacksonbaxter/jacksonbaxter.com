@@ -42,7 +42,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-3 whitespace-nowrap text-sm font-medium tracking-wide text-muted-foreground sm:text-base">
-              {currentAge}yo software engineer from Utah 🇺🇸
+              {currentAge}yo Software Engineer from Utah 🇺🇸
             </p>
 
             <p className="mt-4 max-w-md text-pretty text-sm leading-relaxed sm:text-base">
