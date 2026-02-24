@@ -5,18 +5,20 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Lora, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
 });
-const playfairDisplay = Playfair_Display({
+const lora = Lora({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 export const metadata: Metadata = {
@@ -43,9 +45,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.variable,
-          playfairDisplay.variable,
+          "min-h-screen bg-background font-serif antialiased",
+          spaceGrotesk.variable,
+          lora.variable,
         )}
       >
         <Providers>

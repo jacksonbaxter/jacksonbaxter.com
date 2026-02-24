@@ -82,7 +82,7 @@
     @apply bg-background text-foreground;
   }
   .title {
-    @apply font-serif text-5xl tracking-wide decoration-accent/75 decoration-2;
+    @apply font-sans text-5xl tracking-wide decoration-accent/75 decoration-2;
   }
   .link {
     @apply text-muted-foreground transition-colors hover:text-foreground;
@@ -98,6 +98,12 @@
   }
   .prose code span {
     @apply font-medium;
+  }
+  .font-sans {
+    font-feature-settings: 'ss01', 'kern';
+  }
+  .font-serif {
+    font-feature-settings: 'onum', 'kern', 'liga';
   }
   .input-error {
     @apply ml-1 mt-2 text-sm text-rose-400;
