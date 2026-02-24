@@ -90,7 +90,7 @@ const Card = ({
 
   return (
     <motion.div
-      className="absolute h-[233px] w-[175px] origin-bottom overflow-hidden rounded-lg bg-white hover:cursor-grab active:cursor-grabbing"
+      className="absolute h-[233px] w-[175px] origin-bottom overflow-hidden rounded-xl bg-background hover:cursor-grab active:cursor-grabbing"
       style={{
         gridRow: 1,
         gridColumn: 1,

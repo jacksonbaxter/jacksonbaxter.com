@@ -12,7 +12,7 @@ export default async function PrivacyPage() {
   const privacyContent = await getPrivacyContent();
 
   return (
-    <article className="mt-8 flex flex-col gap-8 pb-16">
+    <article className="mt-12 flex flex-col gap-10 pb-20">
       <h1 className="title">Privacy Policy.</h1>
 
       <div className="prose dark:prose-invert">

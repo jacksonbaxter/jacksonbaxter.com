@@ -17,7 +17,7 @@ export default function TimelineItem({ experience }: Props) {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-white"
+        className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-background"
       >
         <Avatar className="size-12 border">
           <AvatarImage

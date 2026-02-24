@@ -3,13 +3,13 @@ import LinkWithIcon from "../components/LinkWithIcon";
 
 export default function NotFound() {
   return (
-    <article className="mt-8 flex flex-col gap-8 pb-16">
+    <article className="mt-12 flex flex-col gap-8 pb-20">
       <div className="min-h-full px-4 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
         <div className="mx-auto max-w-max">
           <section className="sm:flex">
             <p className="title text-muted-foreground">404</p>
             <div className="sm:ml-6">
-              <div className="sm:border-l sm:border-gray-200 sm:pl-6">
+              <div className="sm:border-l sm:border-border sm:pl-6">
                 <h1 className="title sm:text-5xl">
                   cannot find <i>leh</i>...
                 </h1>

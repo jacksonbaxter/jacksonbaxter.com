@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       }}
     >
       {resolvedTheme === "dark" ? (
-        <SunIcon className="size-4 text-orange-300" />
+        <SunIcon className="size-4 text-amber-400" />
       ) : (
         <MoonIcon className="size-4 text-indigo-500" />
       )}

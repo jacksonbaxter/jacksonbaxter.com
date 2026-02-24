@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71.4% 4.1%;
+    --background: 40 33% 97%;
+    --foreground: 225 25% 12%;
+    --card: 40 33% 98%;
+    --card-foreground: 225 25% 12%;
+    --popover: 40 33% 98%;
+    --popover-foreground: 225 25% 12%;
+    --primary: 225 25% 12%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 36 14% 93%;
+    --secondary-foreground: 225 25% 12%;
+    --muted: 36 14% 93%;
+    --muted-foreground: 25 8% 48%;
+    --accent: 16 53% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 34 13% 88%;
+    --input: 34 13% 88%;
+    --ring: 16 53% 58%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -42,25 +42,25 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
+    --background: 225 20% 7%;
+    --foreground: 36 20% 90%;
+    --card: 225 18% 10%;
+    --card-foreground: 36 20% 90%;
+    --popover: 225 18% 10%;
+    --popover-foreground: 36 20% 90%;
+    --primary: 36 20% 90%;
+    --primary-foreground: 225 20% 7%;
+    --secondary: 225 16% 15%;
+    --secondary-foreground: 36 20% 90%;
+    --muted: 225 16% 15%;
+    --muted-foreground: 30 10% 55%;
+    --accent: 16 53% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 35%;
+    --destructive-foreground: 36 20% 90%;
+    --border: 225 14% 18%;
+    --input: 225 14% 18%;
+    --ring: 16 53% 58%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -82,7 +82,7 @@
     @apply bg-background text-foreground;
   }
   .title {
-    @apply font-serif text-5xl tracking-wide decoration-border/75 decoration-2;
+    @apply font-serif text-5xl tracking-wide decoration-accent/75 decoration-2;
   }
   .link {
     @apply text-muted-foreground transition-colors hover:text-foreground;
@@ -108,7 +108,7 @@
   /* Minimal prose customizations - let typography plugin handle most styling */
   .prose {
     /* Use your design system colors */
-    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-links: hsl(var(--accent));
     --tw-prose-headings: hsl(var(--foreground));
     --tw-prose-body: hsl(var(--foreground) / 0.9);
     --tw-prose-bold: hsl(var(--foreground));
@@ -118,7 +118,7 @@
     --tw-prose-th-borders: hsl(var(--border));
     --tw-prose-td-borders: hsl(var(--border));
     --tw-prose-quotes: hsl(var(--muted-foreground));
-    --tw-prose-quote-borders: hsl(var(--primary));
+    --tw-prose-quote-borders: hsl(var(--accent));
     --tw-prose-hr: hsl(var(--border));
   }
 

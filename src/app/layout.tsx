@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Calistoga, Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,10 +13,10 @@ const inter = Inter({
   variable: "--font-sans",
   weight: ["400", "500", "600", "700"],
 });
-const calistoga = Calistoga({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -45,12 +45,12 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           inter.variable,
-          calistoga.variable,
+          playfairDisplay.variable,
         )}
       >
         <Providers>
           <Header />
-          <div className="mx-auto flex max-w-3xl flex-col px-8">
+          <div className="mx-auto flex max-w-4xl flex-col px-8">
             <main className="grow">{children}</main>
           </div>
           <Footer />

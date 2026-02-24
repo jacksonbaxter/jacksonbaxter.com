@@ -31,15 +31,15 @@ export function ProjectCard({ project }: Props) {
               height={300}
               sizes="(max-width: 640px) calc(100vw - 4rem), 344px"
               quality={75}
-              containerClassName="h-40 w-full"
-              className="h-40 w-full object-cover object-top"
+              containerClassName="h-44 w-full"
+              className="h-44 w-full object-cover object-top"
             />
           </Link>
         )}
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <CardTitle>{name}</CardTitle>
-        <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+        <Markdown className="prose max-w-full text-pretty font-sans text-xs leading-relaxed text-muted-foreground dark:prose-invert">
           {description}
         </Markdown>
       </CardContent>
