@@ -1,6 +1,17 @@
 {
   "education": [
     {
+      "name": "Georgia Institute of Technology",
+      "href": "https://www.gatech.edu",
+      "logo": "/img/gt.jpg",
+      "positions": [
+        {
+          "title": "MS in Computer Science",
+          "start": "Aug 2026"
+        }
+      ]
+    },
+    {
       "name": "Brigham Young University",
       "href": "https://www.byu.edu",
       "logo": "/img/byu.png",
