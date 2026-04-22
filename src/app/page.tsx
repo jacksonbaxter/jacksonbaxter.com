@@ -1,9 +1,9 @@
+import DeferredSwipeCards from "@/components/DeferredSwipeCards";
 import Experience from "@/components/Experience";
 import FadeIn from "@/components/FadeIn";
 import LinkWithIcon from "@/components/LinkWithIcon";
 import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
-import SwipeCards from "@/components/SwipeCards";
 import { Button } from "@/components/ui/Button";
 import { ArrowRightIcon, FileDown } from "lucide-react";
 import Link from "next/link";
@@ -26,7 +26,6 @@ function calculateAge(birthdate: Date): number {
   return age;
 }
 
-
 export default function Home() {
   const currentAge = calculateAge(BIRTHDATE);
 
@@ -34,7 +33,7 @@ export default function Home() {
     <article className="mt-12 flex flex-col gap-20 pb-20">
       <FadeIn delay={0}>
         <section className="flex flex-col items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
-          <SwipeCards className="md:mr-8" />
+          <DeferredSwipeCards className="md:mr-8" />
 
           <div className="flex max-w-[320px] flex-col sm:max-w-full">
             <h1 className="title text-balance text-4xl font-bold sm:text-5xl">
@@ -83,7 +82,9 @@ export default function Home() {
       <FadeIn delay={0.1}>
         <section className="flex flex-col gap-8">
           <div className="flex justify-between">
-            <h2 className="title text-2xl font-bold sm:text-3xl">Featured Projects</h2>
+            <h2 className="title text-2xl font-bold sm:text-3xl">
+              Featured Projects
+            </h2>
             <LinkWithIcon
               href="/projects"
               position="right"

@@ -1,6 +1,6 @@
 import { Experience } from "@/lib/schemas";
+import Image from "next/image";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
 import { Badge } from "./ui/Badge";
 import Icon from "./Icon";
 
@@ -17,18 +17,16 @@ export default function TimelineItem({ experience }: Props) {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="absolute -left-16 top-4 flex items-center justify-center rounded-full bg-background"
+        className="absolute -left-16 top-4 flex size-12 items-center justify-center overflow-hidden rounded-full border bg-background"
       >
-        <Avatar className="size-12 border">
-          <AvatarImage
-            src={logo}
-            alt={name}
-            loading="lazy"
-            decoding="async"
-            className="bg-background object-contain"
-          />
-          <AvatarFallback>{name[0]}</AvatarFallback>
-        </Avatar>
+        <Image
+          src={logo}
+          alt={name}
+          width={48}
+          height={48}
+          sizes="48px"
+          className="h-full w-full object-contain"
+        />
       </Link>
       <div className="flex flex-1 flex-col justify-start gap-2">
         <Link href={href} target="_blank" rel="noreferrer" className="w-fit">

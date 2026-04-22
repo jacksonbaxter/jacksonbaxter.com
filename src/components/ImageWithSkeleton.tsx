@@ -1,9 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Image, { type ImageProps } from "next/image";
 import { useState } from "react";
-import { Skeleton } from "./ui/skeleton";
 
 type ImageWithSkeletonProps = Omit<ImageProps, "onLoadingComplete"> & {
   containerClassName?: string;
@@ -22,20 +20,21 @@ export default function ImageWithSkeleton({
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className={cn("relative overflow-hidden", containerClassName)}>
+    <div
+      className={`relative overflow-hidden${containerClassName ? ` ${containerClassName}` : ""}`}
+    >
       {!isLoaded && (
-        <Skeleton
+        <div
           aria-hidden
-          className={cn(
-            "pointer-events-none absolute inset-0 z-10 rounded-none bg-muted",
-            skeletonClassName,
-          )}
+          className={`pointer-events-none absolute inset-0 z-10 animate-pulse rounded-none bg-muted${
+            skeletonClassName ? ` ${skeletonClassName}` : ""
+          }`}
         />
       )}
       <Image
         alt={alt}
         {...props}
-        className={cn("relative z-0", className)}
+        className={`relative z-0${className ? ` ${className}` : ""}`}
         onLoad={(event) => {
           setIsLoaded(true);
           onLoad?.(event);

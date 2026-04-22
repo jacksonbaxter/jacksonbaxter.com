@@ -5,9 +5,10 @@ import { ContactFormSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PaperPlaneIcon, ReloadIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { useState } from "react";
+import { useTheme } from "next-themes";
+import { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 import { z } from "zod";
 import {
   AlertDialog,
@@ -26,8 +27,11 @@ import { Textarea } from "./ui/Textarea";
 type Inputs = z.infer<typeof ContactFormSchema>;
 
 export default function ContactForm() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [formData, setFormData] = useState<Inputs | null>(null);
+  const [isSending, setIsSending] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   const {
     register,
@@ -43,13 +47,10 @@ export default function ContactForm() {
     },
   });
 
-  const handleFormSubmit: SubmitHandler<Inputs> = async (data) => {
-    const formElement = document.querySelector("form");
-    const honeypot = formElement?.querySelector(
-      'input[name="website"]',
-    ) as HTMLInputElement;
+  const handleFormSubmit: SubmitHandler<Inputs> = (data) => {
+    const honeypotField = formRef.current?.elements.namedItem("website");
 
-    if (honeypot?.value) {
+    if (honeypotField instanceof HTMLInputElement && honeypotField.value) {
       toast.error("Something went wrong. Please try again.");
       return;
     }
@@ -61,22 +62,31 @@ export default function ContactForm() {
   const processForm = async () => {
     if (!formData) return;
 
-    setShowConfirmDialog(false);
+    setIsSending(true);
     const result = await sendEmail(formData);
 
     if (result.error) {
-      toast.error("An error occurred! Please try again later.");
+      toast.error("An error occurred. Please try again later.");
+      setIsSending(false);
       return;
     }
 
-    toast.success("Message sent successfully!");
+    toast.success("Message sent successfully.");
     reset();
     setFormData(null);
+    setShowConfirmDialog(false);
+    setIsSending(false);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+      <Toaster
+        className="mt-12"
+        position="top-right"
+        theme={resolvedTheme === "dark" ? "dark" : "light"}
+      />
+
+      <form ref={formRef} onSubmit={handleSubmit(handleFormSubmit)}>
         {/* Honeypot */}
         <input
           type="text"
@@ -121,8 +131,7 @@ export default function ContactForm() {
           <div className="h-32 sm:col-span-2">
             <Textarea
               rows={4}
-              placeholder="Drop a note with any website feedback or career opportunities, or just say hi. Where are you from? 😊"
-              autoComplete="Message"
+              placeholder="Drop a note with any website feedback, career opportunities, or a quick hello."
               className="resize-none"
               {...register("message")}
             />
@@ -136,18 +145,26 @@ export default function ContactForm() {
         <div className="mt-2">
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || isSending}
             className="w-full disabled:opacity-50"
           >
-            <div className="flex items-center">
-              <span>Send Message</span>
-              <PaperPlaneIcon className="ml-2" />
-            </div>
+            {isSubmitting || isSending ? (
+              <>
+                <span>Sending...</span>
+                <ReloadIcon className="animate-spin" />
+              </>
+            ) : (
+              <>
+                <span>Send Message</span>
+                <PaperPlaneIcon />
+              </>
+            )}
           </Button>
           <p className="mt-4 text-xs text-muted-foreground">
-            By submitting this form, I agree to the{" "}
+            Use a real email so I can reply directly. By submitting this form,
+            you agree to the{" "}
             <Link href="/privacy" className="link font-semibold">
-              privacy&nbsp;policy.
+              privacy policy.
             </Link>
           </p>
         </div>
@@ -156,32 +173,32 @@ export default function ContactForm() {
       <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Just a quick check! 🤔</AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div>
-                <p>
-                  Hey! Remember to use a real email so I can reply you
-                  personally.
-                </p>
-                <p className="mt-4 font-medium">
-                  I&apos;ll be sending my reply to:{" "}
-                  <span className="text-foreground">{formData?.email}</span>
-                </p>
-              </div>
+            <AlertDialogTitle>Confirm your email</AlertDialogTitle>
+            <AlertDialogDescription>
+              Use a real email so I can reply directly.
             </AlertDialogDescription>
           </AlertDialogHeader>
+          <p className="text-sm text-muted-foreground">
+            I&apos;ll send my reply to:{" "}
+            <span className="font-medium text-foreground">{formData?.email}</span>
+          </p>
           <AlertDialogFooter>
-            <AlertDialogCancel>Let me fix that</AlertDialogCancel>
-            <AlertDialogAction onClick={processForm} disabled={isSubmitting}>
-              {isSubmitting ? (
+            <AlertDialogCancel
+              disabled={isSending}
+              onClick={() => setFormData(null)}
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={processForm} disabled={isSending}>
+              {isSending ? (
                 <>
                   <span>Sending...</span>
-                  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />
+                  <ReloadIcon className="h-4 w-4 animate-spin" />
                 </>
               ) : (
                 <>
                   <span>Send</span>
-                  <PaperPlaneIcon className="ml-2 h-4 w-4" />
+                  <PaperPlaneIcon className="h-4 w-4" />
                 </>
               )}
             </AlertDialogAction>
