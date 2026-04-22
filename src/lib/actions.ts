@@ -22,6 +22,7 @@ export async function sendEmail(data: ContactFormInputs) {
       from: `jacksonbaxter.com <contact@jacksonbaxter.com>`,
       to: "jacksonbaxter@gmail.com",
       replyTo: [email],
+      cc: [email],
       subject: `New message from ${name}!`,
       text: `Name:\n${name}\n\nEmail:\n${email}\n\nMessage:\n${message}`,
       // react: ContactFormEmail({ name, email, message }),

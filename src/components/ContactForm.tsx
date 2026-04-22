@@ -6,10 +6,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { PaperPlaneIcon, ReloadIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Toaster, toast } from "sonner";
 import { z } from "zod";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/AlertDialog";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Textarea } from "./ui/Textarea";
@@ -18,6 +28,9 @@ type Inputs = z.infer<typeof ContactFormSchema>;
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [formData, setFormData] = useState<Inputs | null>(null);
+  const [isSending, setIsSending] = useState(false);
   const { resolvedTheme } = useTheme();
 
   const {
@@ -34,7 +47,7 @@ export default function ContactForm() {
     },
   });
 
-  const handleFormSubmit: SubmitHandler<Inputs> = async (data) => {
+  const handleFormSubmit: SubmitHandler<Inputs> = (data) => {
     const honeypotField = formRef.current?.elements.namedItem("website");
 
     if (honeypotField instanceof HTMLInputElement && honeypotField.value) {
@@ -42,15 +55,27 @@ export default function ContactForm() {
       return;
     }
 
-    const result = await sendEmail(data);
+    setFormData(data);
+    setShowConfirmDialog(true);
+  };
+
+  const processForm = async () => {
+    if (!formData) return;
+
+    setIsSending(true);
+    const result = await sendEmail(formData);
 
     if (result.error) {
       toast.error("An error occurred. Please try again later.");
+      setIsSending(false);
       return;
     }
 
     toast.success("Message sent successfully.");
     reset();
+    setFormData(null);
+    setShowConfirmDialog(false);
+    setIsSending(false);
   };
 
   return (
@@ -120,10 +145,10 @@ export default function ContactForm() {
         <div className="mt-2">
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || isSending}
             className="w-full disabled:opacity-50"
           >
-            {isSubmitting ? (
+            {isSubmitting || isSending ? (
               <>
                 <span>Sending...</span>
                 <ReloadIcon className="animate-spin" />
@@ -144,6 +169,42 @@ export default function ContactForm() {
           </p>
         </div>
       </form>
+
+      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm your email</AlertDialogTitle>
+            <AlertDialogDescription>
+              Use a real email so I can reply directly.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <p className="text-sm text-muted-foreground">
+            I&apos;ll send my reply to:{" "}
+            <span className="font-medium text-foreground">{formData?.email}</span>
+          </p>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              disabled={isSending}
+              onClick={() => setFormData(null)}
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={processForm} disabled={isSending}>
+              {isSending ? (
+                <>
+                  <span>Sending...</span>
+                  <ReloadIcon className="h-4 w-4 animate-spin" />
+                </>
+              ) : (
+                <>
+                  <span>Send</span>
+                  <PaperPlaneIcon className="h-4 w-4" />
+                </>
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }
