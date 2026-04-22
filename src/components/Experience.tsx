@@ -25,13 +25,13 @@ export default function Experience() {
 
       <label
         htmlFor="experience-work"
-        className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-muted px-3 py-1 text-sm font-medium text-muted-foreground ring-offset-background transition-all peer-checked/work:bg-background peer-checked/work:text-foreground peer-checked/work:shadow"
+        className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-muted px-3 py-1 text-sm font-medium text-muted-foreground ring-offset-background transition-all peer-checked/work:bg-background peer-checked/work:text-foreground peer-checked/work:shadow peer-focus-visible/work:ring-2 peer-focus-visible/work:ring-ring peer-focus-visible/work:ring-offset-2"
       >
         Work
       </label>
       <label
         htmlFor="experience-education"
-        className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-muted px-3 py-1 text-sm font-medium text-muted-foreground ring-offset-background transition-all peer-checked/education:bg-background peer-checked/education:text-foreground peer-checked/education:shadow"
+        className="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg bg-muted px-3 py-1 text-sm font-medium text-muted-foreground ring-offset-background transition-all peer-checked/education:bg-background peer-checked/education:text-foreground peer-checked/education:shadow peer-focus-visible/education:ring-2 peer-focus-visible/education:ring-ring peer-focus-visible/education:ring-offset-2"
       >
         Education
       </label>
