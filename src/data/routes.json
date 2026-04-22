@@ -3,19 +3,19 @@
     {
       "path": "/",
       "name": "Home",
-      "description": "Portfolio overview and recent projects",
+      "description": "Portfolio overview and recent work",
       "showInNav": true
     },
     {
       "path": "/projects",
       "name": "Projects",
-      "description": "Portfolio projects showcase",
+      "description": "Selected software projects and case studies",
       "showInNav": true
     },
     {
       "path": "/contact",
       "name": "Contact",
-      "description": "Contact form",
+      "description": "Get in touch",
       "showInNav": true
     },
     {
@@ -27,16 +27,9 @@
     {
       "path": "/resume.pdf",
       "name": "Resume",
-      "description": "Ted's resume CV in pdf format",
+      "description": "Jackson Baxter resume in PDF format",
       "showInNav": false
     }
   ],
-  "externalLinks": [
-    {
-      "path": "https://www.instagram.com/gomugomu.cat",
-      "name": "Instagram",
-      "description": "Ted Lead for escalations (joke reference to cat's account)",
-      "isExternal": true
-    }
-  ]
+  "externalLinks": []
 }

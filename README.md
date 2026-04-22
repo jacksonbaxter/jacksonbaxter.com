@@ -1,6 +1,6 @@
 # Jackson Baxter Portfolio
 
-A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn UI. Features email contact form.
+A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn UI. Features a streamlined email contact form, privacy policy, and lightweight site analytics.
 
 ## Live Demo
 
@@ -10,7 +10,9 @@ A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn 
 
 - Minimal design with Shadcn UI
 - Light/dark mode toggle
-- Contact form with email integration
+- Streamlined contact form with email integration
+- Privacy policy with lightweight analytics disclosure
+- Progressive enhancement for homepage interactivity
 - Responsive mobile design
 
 ## Tech Stack
@@ -18,7 +20,7 @@ A clean, minimal portfolio website built with Next.js, Tailwind CSS, and Shadcn 
 - Next.js
 - Tailwind CSS
 - Shadcn UI
-- Vercel (hosting)
+- Vercel (hosting, analytics, speed insights)
 - Resend (email)
 
 ## Getting Started
