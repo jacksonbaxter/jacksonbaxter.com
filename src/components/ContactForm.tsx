@@ -4,25 +4,25 @@ import { sendEmail } from "@/lib/actions";
 import { ContactFormSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PaperPlaneIcon, ReloadIcon } from "@radix-ui/react-icons";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { z } from "zod";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "./ui/AlertDialog";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Textarea } from "./ui/Textarea";
+
+const loadContactFormConfirmDialog = () => import("./ContactFormConfirmDialog");
+const loadContactFormToaster = () => import("./ContactFormToaster");
+
+const ContactFormConfirmDialog = dynamic(loadContactFormConfirmDialog, {
+  ssr: false,
+});
+const ContactFormToaster = dynamic(loadContactFormToaster, {
+  ssr: false,
+});
 
 type Inputs = z.infer<typeof ContactFormSchema>;
 
@@ -31,7 +31,43 @@ export default function ContactForm() {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [formData, setFormData] = useState<Inputs | null>(null);
   const [isSending, setIsSending] = useState(false);
-  const { resolvedTheme } = useTheme();
+  const [showFeedbackUi, setShowFeedbackUi] = useState(false);
+
+  const prewarmFeedbackUi = useCallback(() => {
+    setShowFeedbackUi(true);
+    void loadContactFormConfirmDialog();
+    void loadContactFormToaster();
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadFeedbackUi = () => {
+      if (!cancelled) {
+        prewarmFeedbackUi();
+      }
+    };
+
+    const idleCallback =
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(loadFeedbackUi, { timeout: 1500 })
+        : null;
+
+    const timeoutId =
+      idleCallback === null ? window.setTimeout(loadFeedbackUi, 800) : null;
+
+    return () => {
+      cancelled = true;
+
+      if (idleCallback !== null) {
+        window.cancelIdleCallback(idleCallback);
+      }
+
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [prewarmFeedbackUi]);
 
   const {
     register,
@@ -48,6 +84,8 @@ export default function ContactForm() {
   });
 
   const handleFormSubmit: SubmitHandler<Inputs> = (data) => {
+    prewarmFeedbackUi();
+
     const honeypotField = formRef.current?.elements.namedItem("website");
 
     if (honeypotField instanceof HTMLInputElement && honeypotField.value) {
@@ -60,6 +98,8 @@ export default function ContactForm() {
   };
 
   const processForm = async () => {
+    prewarmFeedbackUi();
+
     if (!formData) return;
 
     setIsSending(true);
@@ -80,14 +120,13 @@ export default function ContactForm() {
 
   return (
     <>
-      <Toaster
-        className="mt-12"
-        position="top-right"
-        theme={resolvedTheme === "dark" ? "dark" : "light"}
-      />
+      {showFeedbackUi && <ContactFormToaster />}
 
-      <form ref={formRef} onSubmit={handleSubmit(handleFormSubmit)}>
-        {/* Honeypot */}
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit(handleFormSubmit)}
+        onFocusCapture={prewarmFeedbackUi}
+      >
         <input
           type="text"
           name="website"
@@ -97,7 +136,6 @@ export default function ContactForm() {
         />
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {/* Name */}
           <div className="h-16">
             <Input
               id="name"
@@ -112,7 +150,6 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Email */}
           <div className="h-16">
             <Input
               id="email"
@@ -127,7 +164,6 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Message */}
           <div className="h-32 sm:col-span-2">
             <Textarea
               rows={4}
@@ -170,41 +206,16 @@ export default function ContactForm() {
         </div>
       </form>
 
-      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Confirm your email</AlertDialogTitle>
-            <AlertDialogDescription>
-              Use a real email so I can reply directly.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <p className="text-sm text-muted-foreground">
-            I&apos;ll send my reply to:{" "}
-            <span className="font-medium text-foreground">{formData?.email}</span>
-          </p>
-          <AlertDialogFooter>
-            <AlertDialogCancel
-              disabled={isSending}
-              onClick={() => setFormData(null)}
-            >
-              Cancel
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={processForm} disabled={isSending}>
-              {isSending ? (
-                <>
-                  <span>Sending...</span>
-                  <ReloadIcon className="h-4 w-4 animate-spin" />
-                </>
-              ) : (
-                <>
-                  <span>Send</span>
-                  <PaperPlaneIcon className="h-4 w-4" />
-                </>
-              )}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      {showFeedbackUi && (
+        <ContactFormConfirmDialog
+          open={showConfirmDialog}
+          onOpenChange={setShowConfirmDialog}
+          email={formData?.email}
+          isSending={isSending}
+          onCancel={() => setFormData(null)}
+          onSend={processForm}
+        />
+      )}
     </>
   );
 }
