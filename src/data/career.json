@@ -7,19 +7,14 @@
       "positions": [
         {
           "title": "Software Engineer, Analytics and AI",
-          "start": "Nov 2025",
-          "description": [
-            "Architected a LangGraph multi-agent system to automate mapping for millions of weekly health and provider records, achieving 96% data quality and virtually eliminating manual intervention.",
-            "Developed a high-performance data scoring engine in C++ capable of evaluating billions of records daily, optimizing computational throughput for large-scale healthcare datasets.",
-            "Re-engineered data pipelines to optimize storage architecture, reducing total database volume by 90% while maintaining 100% data fidelity and operational utility."
-          ]
-        },
-        {
-          "title": "Software Engineer, Analytics and AI (Internship)",
           "start": "Jul 2025",
-          "end": "Oct 2025",
           "description": [
-            "Engineered a data scoring pipeline using Python, Pandas, and NumPy to compare and rank data, increasing customer data quality by 22.5%."
+            "Designed, coded, tested, and documented C++23 scoring and certification services for high-volume healthcare provider datasets using ODBC/SQL, hash maps, batch prefetching, and memory-gated processing.",
+            "Implemented multithreaded phased queues for address scrubbing and certification, adding RAII cleanup, worker exception propagation, SQL deadlock retries, and fail-safe shutdown behavior.",
+            "Refactored dataset scorer hot paths with per-thread caches, reusable buffers, deterministic input ordering, and target-filtered SQL routing to improve throughput and correctness.",
+            "Built TIN-matching and HCDS taxonomy certification workflows, including IRS export rules, candidate streaming, NPI validation, status accounting, smoke tests, and robust failure handling.",
+            "Authored Python/LangGraph roster-mapping CLI workflows that convert Excel/CSV data into standardized JSON, validate quality metrics, A/B-test SOP changes, and roll back regressions.",
+            "Reworked storage/data paths to reduce database volume by 90% while preserving data fidelity."
           ]
         }
       ]
@@ -34,9 +29,10 @@
           "start": "Sep 2024",
           "end": "Apr 2025",
           "description": [
-            "Led a team of 3 engineers to develop a custom RAG system, reducing document search time from 2 hours to under 5 seconds, saving $2.86M annually.",
-            "Engineered a serverless data ingestion pipeline using Docling, OpenAI GPT-4o-mini, and Qwen embeddings, increasing throughput by 40%.",
-            "Improved retrieval accuracy by 35% through a novel contextual embedding strategy."
+            "Led a team of 3 engineers building a custom RAG system for national-lab research documents, reducing document search time from approximately 2 hours to under 5 seconds.",
+            "Built serverless ingestion and indexing workflows using AWS Lambda, SQS, S3, OpenSearch, document parsing, embeddings, and retrieval evaluation.",
+            "Improved processing throughput by 40% and retrieval accuracy by 35% for technical research workflows.",
+            "Documented system architecture and supported secure, repeatable data-processing workflows for researchers."
           ]
         }
       ]
@@ -51,7 +47,9 @@
           "start": "Sep 2021",
           "end": "May 2025",
           "description": [
-            "Led IT infrastructure upgrades for academic departments, including database server migration and optimization, resulting in 15% improvement in query performance."
+            "Led Linux, network, and database infrastructure upgrades for academic departments.",
+            "Migrated and optimized database/server systems, improving query performance and reliability by 15%.",
+            "Coordinated work across student technicians and documented support procedures for high-availability academic environments."
           ]
         }
       ]
