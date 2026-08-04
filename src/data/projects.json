@@ -1,3 +1,24 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "name": "TickForge",
+      "description": "A deterministic C++23 market-microstructure research engine for Nasdaq TotalView-ITCH 5.0 replay, Level-3 order-book reconstruction, exact feature generation, and latency- and cost-aware IOC simulation. Includes Python bindings, cross-platform CI, sanitizers, fuzzing, and reproducible synthetic benchmarks.",
+      "href": "https://github.com/jacksonbaxter/tickforge",
+      "tags": [
+        "C++23",
+        "Python",
+        "CMake",
+        "Nasdaq ITCH",
+        "Market Microstructure",
+        "pybind11"
+      ],
+      "links": [
+        {
+          "name": "Source",
+          "href": "https://github.com/jacksonbaxter/tickforge",
+          "icon": "github"
+        }
+      ]
+    }
+  ]
 }
